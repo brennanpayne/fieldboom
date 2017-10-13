@@ -1,0 +1,15 @@
+.Sidebar {
+  width: 99px;
+  background-color: #253238;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.Sidebar__logo-container {
+  height: 46px;
+  width: 46px;
+  overflow: hidden;
+  margin: 20px auto;
+}

@@ -1,0 +1,9 @@
+.PageHeader {
+  margin: 20px;
+}
+
+.PageHeader__header {
+  color: #505f68;
+  font-size: 2.2rem;
+  font-weight: 500
+}
