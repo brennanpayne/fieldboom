@@ -1,0 +1,7 @@
+.FormLabel {
+  padding: 10px;
+  color: #505f68;
+}
+.FormLabel--active {
+  color: #f65f1b;
+}

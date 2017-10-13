@@ -5,4 +5,5 @@
 .App__content {
   padding-left: 119px;  /* Sidebar is 99px, give 20 more for padding */
   padding-right: 20px;
+  min-height: 100vh;
 }
