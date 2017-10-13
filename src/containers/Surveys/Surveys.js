@@ -24,7 +24,10 @@ class Surveys extends Component {
         </div>
 
         <div className="Surveys__content">
-          <FormAnalytics labels={this.state.labels} formResponsesCount={this.state.formResponsesCount} />
+          <FormAnalytics
+            labels={this.state.labels}
+            formResponses={this.state.formResponses}
+            formResponsesCount={this.state.formResponsesCount} />
         </div>
       </div>
     );
