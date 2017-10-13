@@ -9,7 +9,7 @@ class Table extends Component {
     return (
       <div className="Table">
         <div className="Table__headers">
-          <div className="TableRow">
+          <div className="TableRow TableRow--headers">
             {_.map(this.props.columns, (column) => {
               return <div className="TableRow__cell">{column}</div>
             })}

@@ -4,6 +4,14 @@
 .TableRow {
   display: flex;
   border-top: 1px solid rgba(233,235,242,.5);
+  background-color: #f3f6fa;
+}
+.TableRow--headers {
+  background-color: #fff;
+}
+.TableRow--unread {
+  background-color: #fff;
+  font-weight: 700;
 }
 .TableRow__cell {
   text-align: center;
