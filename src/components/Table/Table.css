@@ -1,0 +1,21 @@
+.Table {
+}
+
+.TableRow {
+  display: flex;
+  border-top: 1px solid rgba(233,235,242,.5);
+}
+.TableRow__cell {
+  text-align: center;
+  padding: 1rem;
+  min-width: 200px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.TableRow__cell--narrow {
+  min-width: 40px;
+  min-width: 40px;
+}

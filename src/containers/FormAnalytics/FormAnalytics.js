@@ -12,7 +12,7 @@ class FormAnalytics extends Component {
           <FormLabels labels={this.props.labels} formResponsesCount={this.props.formResponsesCount} />
         </div>
         <div className="FormAnalytics__content">
-          <FormResponses formResponses={this.props.formResponses} />
+          <FormResponses formResponses={this.props.formResponses} form={this.props.form} />
         </div>
       </div>
     );
@@ -21,12 +21,16 @@ class FormAnalytics extends Component {
 FormAnalytics.defaultProps = {
   formResponsesCount: 0,
   labels: [],
-  formResponses: []
+  formResponses: [],
+  form: {
+    questions: []
+  }
 }
 FormAnalytics.propTypes = {
   labels: PropTypes.array,
   formResponses: PropTypes.arrayOf(PropTypes.object),
-  formResponsesCount: PropTypes.number
+  formResponsesCount: PropTypes.number,
+  form: PropTypes.object
 }
 
 export default FormAnalytics;

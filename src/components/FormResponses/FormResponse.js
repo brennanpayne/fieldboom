@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-// import './FormResponse.css';
 
 class FormResponse extends Component {
 
   render() {
-    let responses = _.map(this.props.formResponses, (response) => {
-      return <div key={response.id}>{response.id} </div>
+    let answers = _.get(this.props, 'responses', [])
+    return _.map(answers, (answer) => {
+      return <span key={answer.id}>{answer.content}</span>
     });
-    return (
-      <div className={`FormResponse`}>
-        {responses}
-      </div>
-    );
   }
 }
 
 FormResponse.propTypes = {
-  formResponses: PropTypes.arrayOf(PropTypes.object).isRequired
+  formResponse: PropTypes.object.isRequired
 }
 
 
