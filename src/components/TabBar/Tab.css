@@ -1,0 +1,14 @@
+.Tab {
+  margin: 0px 15px;
+  padding: 15px 0px;
+  border-bottom: 3px solid transparent;
+  color: #505f68;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.Tab.active {
+  border-color: #336bea;
+  opacity: 1;
+}

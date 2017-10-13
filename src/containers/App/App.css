@@ -3,5 +3,6 @@
 }
 
 .App__content {
-  padding-left: 99px;  /* Same as Sidebar */
+  padding-left: 119px;  /* Sidebar is 99px, give 20 more for padding */
+  padding-right: 20px;
 }
