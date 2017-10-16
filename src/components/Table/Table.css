@@ -11,6 +11,8 @@
 }
 .TableRow--headers .TableRow__cell {
   background-color: #fff;
+  min-width: 150px;
+  max-width: 150px;
 }
 .TableRow--unread .TableRow__cell {
   background-color: #fff;
@@ -30,4 +32,31 @@
 .TableRow__cell--narrow {
   min-width: 40px;
   min-width: 40px;
+}
+
+
+.TableHeader {
+  background-color: #fff;
+  text-align: center;
+  padding: 1rem;
+  min-width: 200px;
+  max-width: 200px;
+
+  display: flex;
+}
+.TableHeader__content {
+  min-width: 150px;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.TableHeader__filter {
+  font-size: .75em;
+  min-width: 50px;
+  max-width: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

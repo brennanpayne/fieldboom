@@ -6,6 +6,24 @@ import _ from 'lodash';
 class CheckboxFilter extends Component {
   state = {
   }
+
+  selectAll = (e) => {
+    e.preventDefault();
+    this.setAllOptionsToValue(true);
+  }
+  selectNone = (e) => {
+    e.preventDefault();
+    this.setAllOptionsToValue(false);
+  }
+
+  setAllOptionsToValue = (valueToSet) => {
+    this.setState((oldState) => {
+      return _.reduce(oldState, (memo, key, value) => {
+        memo[value] = valueToSet;
+        return memo;
+      }, {});
+    })
+  }
   handleChecked = (e, checked) => {
     let value = e.target.name;
     this.setState((oldState) => {
@@ -20,24 +38,30 @@ class CheckboxFilter extends Component {
       return newState;
     });
   }
-  render() {
+  componentWillMount() {
     let high = this.props.answers.find(answer => {
       return answer.rule === "@highRange"
     });
     let low = this.props.answers.find(answer => {
       return answer.rule === "@lowRange"
     });
+    let range = _.range(low.ruleValue, high.ruleValue + 1);
+    let state = _.reduce(range, (memo, value) => {
+      memo[`${value}`] = false;
+      return memo;
+    }, {});
+    this.setState(state);
+  }
+  render() {
 
-    let count = low.ruleValue;
-    let options = _.times(high.ruleValue - low.ruleValue + 1, (index) => {
-      let option = (
-        <Checkbox name={`${count}`} checked={this.state[count]} label={count} key={index} onCheck={this.handleChecked} />
+    let options = _.map(this.state, (value, key) => {
+      return (
+        <Checkbox name={`${key}`} checked={value} label={key} key={key} onCheck={this.handleChecked} />
       );
-      count++;
-      return option;
     });
     return (
       <div>
+        <span style={{color: "#336bea", cursor: "pointer"}} onClick={this.selectAll}>Select All</span>{' / '}<span style={{color: "#336bea", cursor: "pointer"}} onClick={this.selectNone}>None</span>
         {options}
       </div>
     );

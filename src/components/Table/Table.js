@@ -24,14 +24,19 @@ class Table extends Component {
           })}
         </div>
       </div>
-    )
+    );
   }
 }
 
 function TableHeader(props) {
   return (
-    <div className="TableRow__cell">
-      {props.column}{props.filters[props.index]}
+    <div className="TableHeader">
+      <div className="TableHeader__content">
+        {props.column}
+      </div>
+      <div className="TableHeader__filter">
+        {props.filters[props.index]}
+      </div>
     </div>
   );
 }

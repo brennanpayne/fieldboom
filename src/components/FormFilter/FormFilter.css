@@ -1,4 +1,7 @@
 .FormFilter { }
+.FormFilter--active {
+  color: #336bea;
+}
 .FormFilter__popover {
   padding: 10px;
 }

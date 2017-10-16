@@ -30,8 +30,9 @@ class FormResponses extends Component {
     let columns = _.concat([''], questions);
 
     let filters = _.get(this.props.form, 'questions', []).map(question => {
+      let active = this.state.filter.questionId === question.id;
       return (
-        <FormFilter questionId={question.id} answers={question.answers} type={question.answerType} applyFilter={this.applyFilter}/>
+        <FormFilter active={active} questionId={question.id} answers={question.answers} type={question.answerType} applyFilter={this.applyFilter}/>
       )
     });
     filters = _.concat([''], filters);

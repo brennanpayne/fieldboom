@@ -58,7 +58,7 @@ class FormFilter extends Component {
         break;
     }
     return (
-      <div className="FormFilter">
+      <div className={`FormFilter ${this.props.active ? 'FormFilter--active' : ''}`}>
         <Icon iconName="filter" onClick={this.openMenu} />
 
         <Popover
@@ -86,7 +86,8 @@ FormFilter.defaultProps = {
 FormFilter.propTypes = {
   applyFilter: PropTypes.func,
   type: PropTypes.string,
-  questionId: PropTypes.number
+  questionId: PropTypes.number,
+  active: PropTypes.bool
 }
 
 export default FormFilter;
