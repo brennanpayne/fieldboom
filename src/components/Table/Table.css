@@ -4,16 +4,16 @@
 .TableRow {
   display: flex;
   border-top: 1px solid rgba(233,235,242,.5);
-  background-color: #f3f6fa;
 }
-.TableRow--headers {
+.TableRow--headers .TableRow__cell {
   background-color: #fff;
 }
-.TableRow--unread {
+.TableRow--unread .TableRow__cell {
   background-color: #fff;
   font-weight: 700;
 }
 .TableRow__cell {
+  background-color: #f3f6fa;
   text-align: center;
   padding: 1rem;
   min-width: 200px;

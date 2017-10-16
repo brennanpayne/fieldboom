@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import './FormResponses.css';
-import FormResponse from './FormResponse';
 import Table from 'components/Table';
 
 class FormResponses extends Component {
