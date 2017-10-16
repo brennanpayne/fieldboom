@@ -6,6 +6,9 @@
   border-top: 1px solid rgba(233,235,242,.5);
 }
 
+.TableRow--headers {
+  border-top: none;
+}
 .TableRow--headers .TableRow__cell {
   background-color: #fff;
 }
