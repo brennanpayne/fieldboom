@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import './FormResponses.css';
-import FormFilter from 'containers/FormFilter';
+import FormFilter from 'components/FormFilter';
 import Table from 'components/Table';
 import Icon from 'components/Icon';
 
@@ -29,7 +29,7 @@ class FormResponses extends Component {
     let columns = _.concat([''], questions);
 
     let filters = _.get(this.props.form, 'questions', []).map(question => <FormFilter questionId={question.id} type="text" applyFilter={this.applyFilter}/>);
-    filters = _.concat(['', '', ''], filters);
+    filters = _.concat([''], filters);
 
     let rows = _.chain(this.props.formResponses)
       .reduce((memo, formResponse) => {

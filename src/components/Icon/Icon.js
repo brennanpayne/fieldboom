@@ -7,7 +7,7 @@ class Icon extends Component {
     let {style} = this.props;
     style = _.assign({}, style, {verticalAlign: 'middle'});
     return (
-      <i style={style} className={`fa fa-${this.props.iconName} fa-2x ${this.props.className}`} aria-hidden="true"></i>
+      <i style={style} className={`fa fa-${this.props.iconName} fa-2x ${this.props.className}`} aria-hidden="true" onClick={this.props.onClick}></i>
     );
   }
 }
@@ -15,6 +15,7 @@ class Icon extends Component {
 Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
   style: PropTypes.object,
+  onClick: PropTypes.func
 }
 
 export default Icon;
