@@ -12,9 +12,7 @@ class Table extends Component {
           <div className="TableRow TableRow--headers">
             {_.map(this.props.columns, (column, index) => {
               return (
-                <div key={`headers-${index}`} className="TableRow__cell">
-                  {column}{this.props.filters[index]}
-                </div>
+                <TableHeader key={`headers-${index}`} column={column} filters={this.props.filters} index={index} />
               );
             })}
           </div>
@@ -28,6 +26,14 @@ class Table extends Component {
       </div>
     )
   }
+}
+
+function TableHeader(props) {
+  return (
+    <div className="TableRow__cell">
+      {props.column}{props.filters[props.index]}
+    </div>
+  );
 }
 
 function TableRow(props) {

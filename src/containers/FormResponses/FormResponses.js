@@ -5,8 +5,9 @@ import './FormResponses.css';
 import FormFilter from 'components/FormFilter';
 import Table from 'components/Table';
 import Icon from 'components/Icon';
+import Checkbox from 'material-ui/Checkbox';
 
-import {textFilter} from 'utils/filters';
+import {textFilter, rangeFilter} from 'utils/filters';
 
 
 class FormResponses extends Component {
@@ -28,7 +29,11 @@ class FormResponses extends Component {
     let questions = _.get(this.props.form, 'questions', []).map(question => question.content);
     let columns = _.concat([''], questions);
 
-    let filters = _.get(this.props.form, 'questions', []).map(question => <FormFilter questionId={question.id} type="text" applyFilter={this.applyFilter}/>);
+    let filters = _.get(this.props.form, 'questions', []).map(question => {
+      return (
+        <FormFilter questionId={question.id} answers={question.answers} type={question.answerType} applyFilter={this.applyFilter}/>
+      )
+    });
     filters = _.concat([''], filters);
 
     let rows = _.chain(this.props.formResponses)
@@ -87,7 +92,7 @@ function buildRow(formResponse) {
   });
   row.unshift({
     id: `row-${formResponse.id}-checkbox`,
-    content: <input type="checkbox" />,
+    content: <Checkbox />,
     narrow: true
   });
   return row;
@@ -99,9 +104,10 @@ function filterResponses(responseContent, filter) {
     return true;
   }
   switch (filter.type) {
-    case 'text':
+    case 'input':
       return textFilter(responseContent, filter.value)
-      break;
+    case 'range':
+      return rangeFilter(responseContent, filter.value)
     default:
   }
   return true;

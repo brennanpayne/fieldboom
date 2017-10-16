@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {textFilter} from 'utils/filters';
+
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Popover from 'material-ui/Popover';
-import TextField from 'material-ui/TextField';
+import CheckboxFilter from './CheckboxFilter';
+import TextFilter from './TextFilter';
 
 import './FormFilter.css';
 
 class FormFilter extends Component {
   state = {
-    filter: '',
+    filter: null,
     isOpen: false
   }
 
-  handleChange = (e) => {
+  handleChange = (filter) => {
     return this.setState({
-      filter: e.target.value
+      filter
     });
   }
 
@@ -42,6 +43,19 @@ class FormFilter extends Component {
   }
 
   render() {
+    let filter = '';
+    switch (this.props.type) {
+      case 'input':
+        filter = <TextFilter id={this.props.questionId} handleChange={this.handleChange} value={this.state.filter}/>;
+        break;
+      case 'range':
+        filter = <CheckboxFilter answers={this.props.answers} handleChange={this.handleChange} value={this.state.filter}/>
+        break;
+
+      default:
+        filter = '';
+        break;
+    }
     return (
       <div className="FormFilter">
         <Icon iconName="filter" onClick={this.openMenu} />
@@ -52,8 +66,7 @@ class FormFilter extends Component {
           onRequestClose={this.handleRequestClose}
           className="FormFilter__popover"
         >
-          <div>Must Contain:</div>
-          <Filter handleChange={this.handleChange} value={this.state.filter}/>
+          {filter}
           <br />
           <div>
             <Button pill={false} text={"Apply"} buttonType="primary" onClick={this.applyFilter} style={{marginRight: '6px'}}/>
@@ -65,20 +78,14 @@ class FormFilter extends Component {
   }
 }
 
-function Filter(props) {
-  return (
-    <div>
-      <TextField onChange={props.handleChange} value={props.value} type="text"/>
-    </div>
-  );
-}
-
 FormFilter.defaultProps = {
 
 }
 
 FormFilter.propTypes = {
-
+  applyFilter: PropTypes.func,
+  type: PropTypes.string,
+  questionId: PropTypes.number
 }
 
 export default FormFilter;
