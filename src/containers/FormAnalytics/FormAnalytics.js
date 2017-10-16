@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FormLabels from 'components/FormLabels';
-import FormResponses from 'components/FormResponses';
+import FormResponses from 'containers/FormResponses';
 import './FormAnalytics.css';
 class FormAnalytics extends Component {
 
