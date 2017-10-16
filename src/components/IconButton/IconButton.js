@@ -8,7 +8,7 @@ class IconButton extends Component {
     let { iconName, ...props } = this.props;
     return (
       <Button {...props}>
-        <Icon className="IconButton__icon" iconName={iconName}/>
+        <Icon className="IconButton__icon" iconName={iconName} />
       </Button>
     );
   }

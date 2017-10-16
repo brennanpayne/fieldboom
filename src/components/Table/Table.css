@@ -5,6 +5,13 @@
   display: flex;
   border-top: 1px solid rgba(233,235,242,.5);
 }
+.TableRow--filters {
+  border-top: none;
+}
+
+.TableRow--filters .TableRow__cell {
+  background-color: #fff;
+}
 .TableRow--headers .TableRow__cell {
   background-color: #fff;
 }

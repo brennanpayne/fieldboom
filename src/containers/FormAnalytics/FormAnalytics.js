@@ -18,6 +18,7 @@ class FormAnalytics extends Component {
     );
   }
 }
+
 FormAnalytics.defaultProps = {
   formResponsesCount: 0,
   labels: [],
@@ -26,6 +27,7 @@ FormAnalytics.defaultProps = {
     questions: []
   }
 }
+
 FormAnalytics.propTypes = {
   labels: PropTypes.array,
   formResponses: PropTypes.arrayOf(PropTypes.object),

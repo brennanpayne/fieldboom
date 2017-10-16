@@ -3,9 +3,13 @@ import './Button.css';
 import PropTypes from 'prop-types';
 class Button extends Component {
   render() {
-    let { style } = this.props;
+    let { style, pill } = this.props;
+    let modifier = '';
+    if (pill) {
+      modifier = 'Button--pill';
+    }
     return (
-      <button style={style} className={`Button Button--${this.props.buttonType} Button--pill`}>
+      <button style={style} className={`Button Button--${this.props.buttonType} ${modifier}`} onClick={this.props.onClick}>
         {this.props.children}
         <span style={{verticalAlign:'middle'}}>{this.props.text}</span>
       </button>
@@ -13,13 +17,16 @@ class Button extends Component {
   }
 }
 Button.defaultProps = {
-  buttonType: 'default'
+  buttonType: 'default',
+  pill: false
 }
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   buttonType: PropTypes.oneOf(['primary', 'default']),
   style: PropTypes.object,
-  children: PropTypes.element
+  children: PropTypes.element,
+  pill: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default Button;
