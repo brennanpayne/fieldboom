@@ -17,7 +17,8 @@ class Table extends Component {
         </div>
         <div className="Table__rows">
           {_.map(this.props.rows, (row, index) => {
-            return <TableRow data={row} key={`tr-${index}`} index={index} />
+            let {data, metadata} = row;
+            return <TableRow metadata={metadata} data={data} key={metadata.responseId} index={index} />
           })}
         </div>
       </div>
@@ -26,10 +27,10 @@ class Table extends Component {
 }
 function TableRow(props) {
   let row = _.map(props.data, (data, cellIndex) => {
-    return <span key={`cell-${props.index}-${cellIndex}`} className="TableRow__cell">{data}</span>
+    return <span key={`cell-${props.index}-${cellIndex}`} className={`TableRow__cell ${data.narrow ? 'TableRow__cell--narrow' : ''}`}>{data.content}</span>
   });
   return (
-    <div className="TableRow">
+    <div className={`TableRow ${props.metadata.read ? '': 'TableRow--unread'}`}>
       {row}
     </div>
   )
@@ -37,7 +38,7 @@ function TableRow(props) {
 
 Table.propTypes = {
   columns: PropTypes.array,
-  rows: PropTypes.array
+  rows: PropTypes.array,
 }
 
 
