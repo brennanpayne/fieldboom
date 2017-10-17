@@ -8,20 +8,25 @@ class Table extends Component {
   render() {
     return (
       <div className="Table">
-        <div className="Table__headers">
-          <div className="TableRow TableRow--headers">
-            {_.map(this.props.columns, (column, index) => {
-              return (
-                <TableHeader key={`headers-${index}`} column={column} filters={this.props.filters} index={index} />
-              );
+        <div>
+          {this.props.tableControls}
+        </div>
+        <div className="Table__content">
+          <div className="Table__headers">
+            <div className="TableRow TableRow--headers">
+              {_.map(this.props.columns, (column, index) => {
+                return (
+                  <TableHeader key={`headers-${index}`} column={column} filters={this.props.filters} index={index} />
+                );
+              })}
+            </div>
+          </div>
+          <div className="Table__rows">
+            {_.map(this.props.rows, (row, index) => {
+              let {data, metadata} = row;
+              return <TableRow metadata={metadata} data={data} key={metadata.responseId} index={index} />
             })}
           </div>
-        </div>
-        <div className="Table__rows">
-          {_.map(this.props.rows, (row, index) => {
-            let {data, metadata} = row;
-            return <TableRow metadata={metadata} data={data} key={metadata.responseId} index={index} />
-          })}
         </div>
       </div>
     );
@@ -55,6 +60,7 @@ function TableRow(props) {
 Table.propTypes = {
   columns: PropTypes.array,
   rows: PropTypes.array,
+  tableControls: PropTypes.element
 }
 
 

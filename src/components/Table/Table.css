@@ -6,6 +6,9 @@
   border-top: 1px solid rgba(233,235,242,.5);
 }
 
+.Table__content {
+  overflow-x: scroll;
+}
 .TableRow--headers {
   border-top: none;
 }

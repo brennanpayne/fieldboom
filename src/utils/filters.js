@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 // Very basic text search
 function textFilter(answer, search) {
   let regex = new RegExp(search, 'ig')

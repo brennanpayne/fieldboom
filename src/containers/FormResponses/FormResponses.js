@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import './FormResponses.css';
 import FormFilter from 'containers/FormFilter';
 import Table from 'components/Table';
+import TableControls from 'components/TableControls';
 import Icon from 'components/Icon';
 import Checkbox from 'material-ui/Checkbox';
 
@@ -23,6 +23,16 @@ class FormResponses extends Component {
     this.setState({
       filter
     });
+  }
+
+  clearFilter = () => {
+    this.setState({
+      filter: {
+        questionId: 0,
+        type: '',
+        value: ''
+      }
+    })
   }
 
   render() {
@@ -56,7 +66,7 @@ class FormResponses extends Component {
 
     return (
       <div className={`FormResponses`}>
-        <Table rows={rows} columns={columns} filters={filters}>
+        <Table rows={rows} columns={columns} filters={filters} tableControls={<TableControls clearFilter={this.clearFilter} showClearFiltersButton={this.state.filter.questionId > 0}/>}>
         </Table>
       </div>
     );
