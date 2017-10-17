@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import Checkbox from 'material-ui/Checkbox';
-import Button from 'components/Button';
 import './TableControls.css';
 import ArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down';
 import Clear from 'material-ui/svg-icons/content/clear';
@@ -19,8 +17,8 @@ class TableControls extends Component {
         </div>
         <div className="TableControls__right-controls">
           {this.props.showClearFiltersButton &&
-            <div className="TableControls__clear-filter">
-              <span style={{verticalAlign: 'middle'}} onClick={()=>{ this.props.clearFilter() }}>Clear Filters</span> <Clear style={{verticalAlign: 'middle'}} />
+            <div className="TableControls__clear-filter" onClick={()=>{ this.props.clearFilter() }}>
+              <span style={{verticalAlign: 'middle'}} >Clear Filters</span> <Clear style={{verticalAlign: 'middle'}} />
             </div>
           }
           <div className="TableControls__pagination">

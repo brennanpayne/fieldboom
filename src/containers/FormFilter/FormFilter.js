@@ -48,10 +48,13 @@ class FormFilter extends Component {
   }
 
   applyFilter = () => {
-    return this.props.applyFilter({
+    this.props.applyFilter({
       type: this.props.type,
       value: this.state.filter,
       questionId: this.props.questionId
+    });
+    this.setState({
+      isOpen: false
     });
   }
 
