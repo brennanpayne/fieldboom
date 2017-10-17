@@ -2,6 +2,9 @@
 .FormFilter--active {
   color: #336bea;
 }
+.FormFilter__icon {
+  cursor: pointer;
+}
 .FormFilter__popover {
   padding: 10px;
 }

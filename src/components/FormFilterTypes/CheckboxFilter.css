@@ -1,0 +1,8 @@
+.CheckboxFilter {
+
+}
+
+.CheckboxFilter .CheckboxFilter__selectAllOrNone {
+  cursor: pointer;
+  color: #336bea;
+}

@@ -7,8 +7,7 @@ function textFilter(answer, search) {
 }
 
 function rangeFilter(answer, selectedValues) {
-  if (selectedValues.length === 0) { return true; }
-  return _.includes(selectedValues, answer);
+  return selectedValues[answer];
 }
 
 export {

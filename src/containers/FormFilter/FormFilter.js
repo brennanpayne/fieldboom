@@ -4,16 +4,35 @@ import PropTypes from 'prop-types';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Popover from 'material-ui/Popover';
-import CheckboxFilter from './CheckboxFilter';
-import TextFilter from './TextFilter';
+import {TextFilter, RangeFilter} from 'components/FormFilterTypes';
 
 import './FormFilter.css';
 
 class FormFilter extends Component {
-  state = {
-    filter: null,
-    isOpen: false
+
+
+  constructor(props) {
+    super(props);
+    let defaultFilter = '';
+    switch (this.props.type) {
+      case 'input':
+        defaultFilter = '';
+        break;
+      case 'range':
+        defaultFilter = {};
+        break;
+
+      default:
+        // select
+        defaultFilter = '';
+        break;
+    }
+    this.state = {
+      filter: defaultFilter,
+      isOpen: false
+    }
   }
+
 
   handleChange = (filter) => {
     return this.setState({
@@ -46,10 +65,10 @@ class FormFilter extends Component {
     let filter = '';
     switch (this.props.type) {
       case 'input':
-        filter = <TextFilter id={this.props.questionId} handleChange={this.handleChange} value={this.state.filter}/>;
+        filter = <TextFilter id={this.props.questionId.toString()} handleChange={this.handleChange} value={this.state.filter}/>;
         break;
       case 'range':
-        filter = <CheckboxFilter answers={this.props.answers} handleChange={this.handleChange} value={this.state.filter}/>
+        filter = <RangeFilter answers={this.props.answers} handleChange={this.handleChange} value={this.state.filter}/>
         break;
 
       default:
@@ -59,7 +78,7 @@ class FormFilter extends Component {
     }
     return (
       <div className={`FormFilter ${this.props.active ? 'FormFilter--active' : ''}`}>
-        <Icon iconName="filter" onClick={this.openMenu} />
+        <Icon className="FormFilter__icon" iconName="filter" onClick={this.openMenu} />
 
         <Popover
           open={this.state.isOpen}
@@ -80,7 +99,6 @@ class FormFilter extends Component {
 }
 
 FormFilter.defaultProps = {
-
 }
 
 FormFilter.propTypes = {
