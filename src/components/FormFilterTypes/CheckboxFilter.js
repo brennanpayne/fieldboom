@@ -30,7 +30,7 @@ class CheckboxFilter extends Component {
   render() {
     let checkBoxes = _.map(this.props.options, (value, key) => {
       return (
-        <Checkbox name={`${key}`} checked={value} label={key} key={key} onCheck={this.handleChecked} />
+        <Checkbox name={`${key}`} checked={value} label={_.capitalize(key)} key={key} onCheck={this.handleChecked} />
       );
     });
     return (

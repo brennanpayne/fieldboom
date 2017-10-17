@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Popover from 'material-ui/Popover';
-import {TextFilter, RangeFilter} from 'components/FormFilterTypes';
+import {TextFilter, RangeFilter, SelectFilter} from 'components/FormFilterTypes';
 
 import './FormFilter.css';
 
@@ -21,9 +21,10 @@ class FormFilter extends Component {
       case 'range':
         defaultFilter = {};
         break;
-
+      case 'select':
+        defaultFilter = {};
+        break;
       default:
-        // select
         defaultFilter = '';
         break;
     }
@@ -69,6 +70,9 @@ class FormFilter extends Component {
         break;
       case 'range':
         filter = <RangeFilter answers={this.props.answers} handleChange={this.handleChange} value={this.state.filter}/>
+        break;
+      case 'select':
+        filter = <SelectFilter answers={this.props.answers} handleChange={this.handleChange} value={this.state.filter}/>
         break;
 
       default:

@@ -7,7 +7,7 @@ import Table from 'components/Table';
 import Icon from 'components/Icon';
 import Checkbox from 'material-ui/Checkbox';
 
-import {textFilter, rangeFilter} from 'utils/filters';
+import {textFilter, rangeFilter, selectFilter} from 'utils/filters';
 
 
 class FormResponses extends Component {
@@ -109,6 +109,8 @@ function filterResponses(responseContent, filter) {
       return textFilter(responseContent, filter.value)
     case 'range':
       return rangeFilter(responseContent, filter.value)
+    case 'select':
+      return selectFilter(responseContent, filter.value)
     default:
   }
   return true;

@@ -10,7 +10,12 @@ function rangeFilter(answer, selectedValues) {
   return selectedValues[answer];
 }
 
+function selectFilter(answer, selectedValues) {
+  return selectedValues[answer.toLowerCase()];
+}
+
 export {
   textFilter,
-  rangeFilter
+  rangeFilter,
+  selectFilter
 }

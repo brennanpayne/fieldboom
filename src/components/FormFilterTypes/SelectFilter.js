@@ -6,29 +6,13 @@ import _ from 'lodash';
 
 class SelectFilter extends Component {
 
-  componentWillMount() {
-
-  }
 
   render() {
-
-    let high = this.props.answers.find(answer => {
-      return answer.rule === "@highRange"
-    });
-    let low = this.props.answers.find(answer => {
-      return answer.rule === "@lowRange"
-    });
-    let range = _.range(low.ruleValue, high.ruleValue + 1);
-    let options = _.reduce(range, (memo, value) => {
-      memo[`${value}`] = false;
+    let options = _.reduce(this.props.answers, (memo, answer) => {
+      memo[answer.content.toLowerCase()] = false;
       return memo;
     }, {});
-
-    options = _.reduce(this.props.value, (memo, value, key) => {
-      memo[`${key}`] = true;
-      return memo;
-    }, options);
-
+    options = _.assign({}, options, this.props.value);
     return (
       <CheckboxFilter options={options} handleChange={this.props.handleChange} />
     )
