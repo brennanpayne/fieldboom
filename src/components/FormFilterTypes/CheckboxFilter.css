@@ -6,3 +6,7 @@
   cursor: pointer;
   color: #336bea;
 }
+
+.CheckboxFilter .CheckboxFilter__row {
+  padding-bottom: 6px;
+}

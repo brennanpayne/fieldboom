@@ -35,7 +35,9 @@ class CheckboxFilter extends Component {
     });
     return (
       <div className="CheckboxFilter">
-        <span className="CheckboxFilter__selectAllOrNone" onClick={this.selectAll}>Select All</span>{' / '}<span className="CheckboxFilter__selectAllOrNone" onClick={this.selectNone}>None</span>
+        <div className="CheckboxFilter__row">
+          <span className="CheckboxFilter__selectAllOrNone" onClick={this.selectAll}>Select All</span>{' / '}<span className="CheckboxFilter__selectAllOrNone" onClick={this.selectNone}>None</span>
+        </div>
         {checkBoxes}
       </div>
     );

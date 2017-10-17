@@ -5,8 +5,6 @@ import _ from 'lodash';
 
 
 class SelectFilter extends Component {
-
-
   render() {
     let options = _.reduce(this.props.answers, (memo, answer) => {
       memo[answer.content.toLowerCase()] = false;
