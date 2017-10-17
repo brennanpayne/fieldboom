@@ -12,4 +12,6 @@ Thoughts / Improvements:
 
 - Similarly, adding multiple filters could be accomplished by storing a filter for each question, instead of a single filter at in `FormResponses`.  We could then iterate over all the applied filters.
 
-- I also regret not binding the "Enter" key to submit the filter.
+- I regret not binding the "Enter" key to submit the filter.
+
+- I would've liked to beef up the Table component better, allowing for more abstraction and then layering in more situational aspects via something like `SurveyReponsesTable`, or something akin.
