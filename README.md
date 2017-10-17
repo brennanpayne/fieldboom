@@ -15,3 +15,5 @@ Thoughts / Improvements:
 - I regret not binding the "Enter" key to submit the filter.
 
 - I would've liked to beef up the Table component better, allowing for more abstraction and then layering in more situational aspects via something like `SurveyReponsesTable`, or something akin.
+
+- I was quickly approaching the point in which I would've liked to restructure the directories a bit.  Perhaps a Basic Components section (`Button`, `IconButton`, `SideBar`, etc), Situational Components (`FormLabels`, `FormFilterTypes`, etc), and something similar for Containers.  Or something different entirely, there are a few schools of thought on how larger React apps should be laid out.
