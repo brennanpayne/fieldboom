@@ -79,7 +79,6 @@ class FormFilter extends Component {
         break;
 
       default:
-        // select
         filter = '';
         break;
     }

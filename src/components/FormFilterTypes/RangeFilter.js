@@ -6,12 +6,7 @@ import _ from 'lodash';
 
 class RangeFilter extends Component {
 
-  componentWillMount() {
-
-  }
-
   render() {
-
     let high = this.props.answers.find(answer => {
       return answer.rule === "@highRange"
     });
